@@ -3,13 +3,15 @@ import Square from "./Square";
 import "./Board.css";
 
 const Board = () => {
-  
-  const [squares, setSquares] = useState(Array[9].fill(null));
+  const [squares, setSquares] = useState([Array[9]].fill(null));
+  const [xIsNext, setXIsNext] = useState(true);
+  const status = `Next player: ${xIsNext ? "X" : "0"}`;
 
   const handleClick = (i) => {
     const newSquares = squares.slice();
-    newSquares[i] = "X";
+    newSquares[i] = xIsNext ? "X" : "0";
     setSquares(newSquares);
+    setXIsNext((prev) => !prev);
   };
 
   const renderSquare = (i) => {
@@ -18,7 +20,7 @@ const Board = () => {
 
   return (
     <div>
-      <div className='status'>Next Player: X, O</div>
+      <div className='status'>{status}</div>
       <div className='board-row'>
         {renderSquare(0)}
         {renderSquare(1)}
