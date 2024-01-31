@@ -38,7 +38,7 @@ function App() {
   }
 
   const handleClick = (i) => {
-    console.log('handle')
+    console.log("handle");
     const newSquares = current.squares.slice();
     if (calculateWinner(newSquares) || newSquares[i]) {
       return;
@@ -48,6 +48,15 @@ function App() {
     setXIsNext((prev) => !prev);
   };
 
+  const moves = history.map((step, move) => {
+    const desc = move ? "Go to move #" + move : "Go to game start";
+    return (
+      <li key={move}>
+        <button>{desc}</button>
+      </li>
+    );
+  });
+
   return (
     <div className='game'>
       <div className='game-board'>
@@ -55,6 +64,7 @@ function App() {
       </div>
       {/* <div className='game-info'>game-info</div> */}
       <div className='status'>{status}</div>
+      <ol>{moves}</ol>
     </div>
   );
 }
