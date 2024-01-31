@@ -6,12 +6,4 @@ body {
   margin: 0;
   padding: 0;
 }
-ol,
-ul {
-  margin: 0;
-  background-color: #ffffff3b;
-  padding: 30px;
-  height: 250px;
-  overflow: auto;
-  height: 200px;
-}
+
