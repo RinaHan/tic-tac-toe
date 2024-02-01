@@ -52,7 +52,7 @@ function App() {
   };
 
   const moves = history.map((step, i) => {
-    const desc = i ? "Go to move #" + i : "Go to game start";
+    const desc = i ? "Go to move #" + i : "Start";
     return (
       <li key={i}>
         <button className='move-button' onClick={() => jumpTo(i)}>
